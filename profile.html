@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+   
+</head>
+<body>
+    <h1>Profile</h1>
+</body>
+<script>
+     let data = JSON.parse(localStorage.getItem('data'));
+      let p = document.createElement('p');
+      let v = document.createElement('p');
+      let z = document.createElement('p');
+      for(t of data){
+        p.innerHTML=t.name;
+        document.body.appendChild(p);
+        v.innerHTML= t.email;
+        document.body.appendChild(v);
+        z.innerHTML= t.password;
+        document.body.appendChild(z);
+
+
+      }
+      window.location.href="./profile.html" 
+
+
+        function generateToken(){
+            let capital = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+            let small = "abcdefghijklmnopqrstuvwxyz"
+            let digit ="0123456789";
+            let special="`~!@#$%^&*()-_=+[]\{}|;':,./<>?";
+            let token="";
+            let characters = capital+small+digit+special;
+            for(let i=0;i<10;i++)
+            {
+                let random = Math.floor(Math.random()*characters.length);
+                let token = token + characters[random]
+            }
+            return token;
+        }
+
+    
+</script>
+</html>
